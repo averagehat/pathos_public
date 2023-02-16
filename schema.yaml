@@ -1,0 +1,105 @@
+type: object
+required:
+    - rapsearch
+    - pricefilter
+    - bowtie2
+    - ncbi
+    - threads
+    - assembly
+    - cdhitdup
+    - lzwfilter
+    - blastn 
+properties:
+  rapsearch:
+    type: object
+    properties:
+      rapsearchDB:
+        type: string
+        pattern: ^(/[^/]+)+$
+  pricefilter:
+    type: object
+    properties:
+      highQualPercent:
+        type: integer
+        minimum: 1
+        maximum: 100
+      calledPercent:
+        type: integer
+        minimum: 1
+        maximum: 100
+      highQualMin: 
+        type: number
+        minimum: 0
+        maximum: 1
+    required: 
+      - highQualPercent
+      - highQualMin
+      - calledPercent
+    additionalProperties: false
+  bowtie2:
+    type: object
+    properties:
+      bowtieDB:
+        type: string
+        pattern: ^(/[^/]+)+$
+    additionalProperties: false
+    required: 
+      - bowtieDB
+  threads:
+    type: integer
+    minimum: 1
+    maximum: 64
+  assembly:
+    type: object
+    properties:
+      assembler:
+        enum:
+          - abyss
+          - ray2
+      minimum_contig_length:
+          type: integer
+          minimum: 1
+          maximum: 10000000
+      options:
+        type: string
+    required:
+      - assembler
+      - options
+      - minimum_contig_length
+    additionalProperties: false
+  cdhitdup:
+    type: object
+    properties:
+      minDifference:
+        type: integer
+        minimum: 1
+        maximum: 100
+    additionalProperties: false
+    required: 
+      - minDifference
+  lzwfilter:
+    type: object
+    properties:
+      maxCompressionScore:
+        type: number
+        minimum: 0
+        maximum: 1
+  ncbi:
+    type: object
+    properties:
+      ntDB:
+        type: string
+        pattern: ^(/[^/]+)+$
+      nrDB:
+        type: string
+        pattern: ^(/[^/]+)+$
+      ktTaxonomy:
+        type: string
+        pattern: ^(/[^/]+)+$
+  blastn:
+    type: object
+    properties:
+      max_target_seqs:
+        type: number
+        minimum: 1
+        maximum: 100

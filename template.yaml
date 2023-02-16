@@ -1,0 +1,25 @@
+pricefilter:
+  highQualPercent: 85
+  calledPercent: 90
+  highQualMin: 0.98
+bowtie2:
+  bowtieDB: {DB}/human-bowtie/bowtie-index
+star:
+  starDB: {DB}/star-index-dir/
+  skip: {NO_STAR}
+threads: 16
+assembly:
+  assembler: ray2
+  options: " "
+  kmer: 25
+  minimum_contig_length: 200
+cdhitdup:
+  minDifference: 5
+ncbi:
+  ntDB: {DB}/ncbi/blast/nt/nt
+  nrDB: {DB}/ncbi/blast/nr/nr
+  ktTaxonomy: {DB}/krona
+lzwfilter:
+  minCompressionScore: 0
+blastn:
+  max_target_seqs: 3

@@ -1,0 +1,4 @@
+pandas
+matplotlib
+biopython
+ete2

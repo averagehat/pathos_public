@@ -1,0 +1,5 @@
+gmap
+star
+samtools
+bowtie2=2.2.5
+krona

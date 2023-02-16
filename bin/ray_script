@@ -1,0 +1,24 @@
+echo $1
+
+R1=$1
+R2=$2
+FASTA=$3
+SAMFILE=$4
+PARAM=$5
+
+PATHOSDIR=$(dirname $FASTA)
+OUTDIR=$(dirname $FASTA)/RAYOUT
+LOGDIR=$(dirname $FASTA)/raylogs/
+# where does the param file live?????
+
+mkdir -p $OUTDIR
+
+module load pathdiscov
+cmd="ray2_assembly.pl --R1 $R1 --R2 $R2 --sample RAY --outputdir $OUTDIR --logs $LOGDIR --paramfile $PARAM"
+echo $cmd
+$cmd
+
+cp $OUTDIR/ray2_assembly_1.fasta $FASTA
+
+samtools view -h $OUTDIR/bowtie2_mapping/out.bam > $SAMFILE
+

@@ -1,0 +1,1 @@
+cd databases && make all

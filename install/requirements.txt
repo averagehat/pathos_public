@@ -1,0 +1,10 @@
+# conda ete2
+sh
+path.py
+funcy==1.8
+docopt
+toolz
+pyyaml
+schema
+plumbum
+jsonschema

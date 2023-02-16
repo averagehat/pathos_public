@@ -1,0 +1,26 @@
+pricefilter:
+  highQualPercent: 85
+  calledPercent: 90
+  highQualMin: 0.98
+bowtie2:
+  bowtieDB: /media/People/michael.panciera/path-pipe/bowtie-index
+gsnap:
+  gsnapDB: /fakepath/
+star:
+  starDB: /media/People/michael.panciera/CURRENT/pathos/install/star-index-dir/
+  skip: false
+threads: 16
+assembly:
+  assembler: ray2
+  options: " "
+  minimum_contig_length: 200
+cdhitdup:
+  minDifference: 5
+ncbi:
+  ntDB: /opt/VDBSoftware/databases/ncbi/blast/nt/nt
+  nrDB: /opt/VDBSoftware/databases/ncbi/blast/nr/nr
+  ktTaxonomy: /u/michael.panciera/myconda/opt/krona/taxonomy
+lzwfilter:
+  minCompressionScore: 0
+blastn:
+  max_target_seqs: 3
