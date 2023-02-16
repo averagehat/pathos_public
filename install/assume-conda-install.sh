@@ -27,9 +27,9 @@ pip install -r requirements.txt
 
 # == PriceSeqFilter
 PRICESOURCE=PriceSource140408
-if [ ! -f ${PRICESOURCE}.tar.gz ]; then
-    wget https://derisilab.ucsf.edu/software/price/${PRICESOURCE}.tar.gz 
-fi
+#if [ ! -f ${PRICESOURCE}.tar.gz ]; then
+#    wget https://derisilab.ucsf.edu/software/price/${PRICESOURCE}.tar.gz 
+#fi
 tar -xvf ${PRICESOURCE}.tar.gz 
 cd PriceSource140408 && make && ln -s $PWD/PriceSeqFilter $BIN/PriceSeqFilter && cd ..
 
