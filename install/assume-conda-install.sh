@@ -4,7 +4,7 @@
 
 # e.g. bash install.sh $PWD/../miniconda
 
-
+set -x
 set -e
 
 if [ $# -ne 1 ]; then
@@ -27,7 +27,9 @@ pip install -r requirements.txt
 
 # == PriceSeqFilter
 PRICESOURCE=PriceSource140408
-wget https://derisilab.ucsf.edu/software/price/${PRICESOURCE}.tar.gz 
+if [ ! -f ${PRICESOURCE}.tar.gz ]; then
+    wget https://derisilab.ucsf.edu/software/price/${PRICESOURCE}.tar.gz 
+fi
 tar -xvf ${PRICESOURCE}.tar.gz 
 cd PriceSource140408 && make && ln -s $PWD/PriceSeqFilter $BIN/PriceSeqFilter && cd ..
 
