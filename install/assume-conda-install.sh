@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 # == PriceSeqFilter
 PRICESOURCE=PriceSource140408
-wget http://derisilab.ucsf.edu/software/price/${PRICESOURCE}.tar.gz 
+wget https://derisilab.ucsf.edu/software/price/${PRICESOURCE}.tar.gz 
 tar -xvf ${PRICESOURCE}.tar.gz 
 cd PriceSource140408 && make && ln -s $PWD/PriceSeqFilter $BIN/PriceSeqFilter && cd ..
 
@@ -41,7 +41,7 @@ cd cdhit/cd-hit-auxtools/ && make && ln -s $PWD/cd-hit-dup  $BIN/cd-hit-dup
 BLAST_VER1=2.2.30
 BLAST_VER=ncbi-blast-${BLAST_VER1}+ 
 BLAST_TGZ=$BLAST_VER-x64-linux.tar.gz
-BLAST_URL=http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/$BLAST_VER1/$BLAST_TGZ
+BLAST_URL=https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/$BLAST_VER1/$BLAST_TGZ
 wget $BLAST_URL -O- | tar xzvf -
 ln -s $PWD/$BLAST_VER/bin/blastdbcmd $BIN/blastdbcmd
 ln -s $PWD/$BLAST_VER/bin/blastn $BIN/blastn
