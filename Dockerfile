@@ -4,6 +4,10 @@ MAINTAINER Michael Panciera
 ARG GIT_USER
 ARG GIT_TOKEN
 
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN cat setup.py
 RUN yum -y update \
     && yum -y install curl bzip2 git wget make gcc-c++ \
     && curl -sSL https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -o /tmp/miniconda.sh \
@@ -16,11 +20,8 @@ RUN yum -y update \
     && yum clean all
 
 ENV PATH "/usr/local/bin/:$PATH"
+RUN cd pathos_public/install && sh assume-conda-install.sh /usr/local/bin/ 
+RUN sh mk_yaml.sh > test.yaml
+RUN cd databases  && make all
 
-RUN mkdir /HERE && cd /HERE && git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/averagehat/pathos.git \
-    && cd pathos/install \
-    && sh assume-conda-install.sh /usr/local/bin/ \ 
-    && cd .. \
-    && sh mk_yaml.sh > test.yaml \
-    && cd databases \
-    && make all 
+ # mkdir /HERE && cd /HERE && git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/averagehat/pathos_public.git \
