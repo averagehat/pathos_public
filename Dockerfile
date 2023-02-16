@@ -23,4 +23,4 @@ RUN mkdir /HERE && cd /HERE && git clone https://${GIT_USER}:${GIT_TOKEN}@github
     && cd .. \
     && sh mk_yaml.sh > test.yaml \
     && cd databases \
-    && make all 
+    && make human
