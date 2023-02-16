@@ -9,7 +9,7 @@ star:
   skip: {NO_STAR}
 threads: 16
 assembly:
-  assembler: ray2
+  assembler: abyss
   options: " "
   kmer: 25
   minimum_contig_length: 200
