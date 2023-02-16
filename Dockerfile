@@ -22,6 +22,6 @@ RUN yum -y update \
 ENV PATH "/usr/local/bin/:$PATH"
 RUN cd install && sh assume-conda-install.sh /usr/local/bin/ 
 RUN sh mk_yaml.sh > test.yaml
-# RUN cd databases  && make all
+RUN cd databases  && make all
 
  # mkdir /HERE && cd /HERE && git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/averagehat/pathos_public.git \
